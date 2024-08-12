@@ -37,8 +37,8 @@ msg() {
     v22=$(cat /etc/versin_script)
     [[ $v11 = $v22 ]] && vesaoSCT="\033[1;37mVersion\033[1;32m $v22 \033[1;31m]" || vesaoSCT="\033[1;31m($v22)\033[1;97m→\033[1;32m($v11)\033[1;31m  ]"
     aviso_bock() {
-        echo 'echo -e "\033[1;91m————————————————————————————————————————————————————\n       ¡LOCKED SCRIPT ! \n————————————————————————————————————————————————————"' >/usr/bin/menu
-        echo 'echo -e "\033[1;91m————————————————————————————————————————————————————\n       ¡LOCKED SCRIPT ! \n————————————————————————————————————————————————————"' >/usr/bin/VPS-AGN
+        echo 'echo -e "\033[1;91m——————————————————————————————\n       ¡LOCKED SCRIPT ! \n————————————————————————————————————————————————————"' >/usr/bin/menu
+        echo 'echo -e "\033[1;91m———————————————————————————————\n       ¡LOCKED SCRIPT ! \n————————————————————————————————————————————————————"' >/usr/bin/VPS-AGN
         rm -rf /etc/VPS-AGN
     }
     local colors="/etc/VPS-AGN/colors"
@@ -79,8 +79,8 @@ msg() {
     -verd) cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}" ;;
     -az) cor="${COLOR[4]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}" ;;
     -bra) cor="${COLOR[0]}${SEMCOR}" && echo -e "${cor}${2}${SEMCOR}" ;;
-    "-bar2" | "-bar") cor="${COLOR[1]}————————————————————————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
-    -tit) echo -e "\e[97m \033[1;41m| #-#-►  SCRIPT VPS•AGN ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT " && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+    "-bar2" | "-bar") cor="${COLOR[1]}————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+    -tit) echo -e "\e[97m \033[1;41m| #-#-►  SCRIPT MISION ◄-#-# | \033[1;49m\033[1;49m \033[1;31m[ \033[1;32m $vesaoSCT " && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
     -bar3) $([[ ! -e $(echo -e $(echo "2f7573722f73686172652f6d65646961707472652f6c6f63616c2f6c6f672f6c6f676e756c6c" | sed 's/../\\x&/g;s/$/ /')) ]] && $(aviso_bock >/dev/null 2>&1)) && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
     esac
 }
@@ -117,7 +117,7 @@ fun_trans() {
     local LINGUAGE=$(cat ${SCPidioma})
     [[ -z $LINGUAGE ]] && LINGUAGE=en
     [[ $LINGUAGE = "en" ]] && echo "$@" && return
-    [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/LINKS-LIBRARIES/trans &>/dev/null
+    [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/LINKS-LIBRARIES/trans &>/dev/null
     [[ ! -e /etc/VPS-AGN/texto-mx ]] && touch /etc/VPS-AGN/texto-mx
     source /etc/VPS-AGN/texto-mx
     if [[ -z "$(echo ${texto[$@]})" ]]; then
@@ -130,7 +130,7 @@ fun_trans() {
 }
 function_verify() {
 
-    v1=$(curl -sSL "https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/SCRIPT-v8.5x/Version")
+    v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
     echo "$v1" >/etc/versin_script
 }
 atualiza_fun() {
@@ -172,7 +172,7 @@ atualiza_fun() {
         clear
         msg -bar
         msg -tit
-        echo -e "\033[1;91m      UPDATE VPS-AGN SCRIPT FILES"
+        echo -e "\033[1;91m      UPDATE VPS-AGN mision SCRIPT FILES"
         msg -bar2 && msg -ne "\033[1;93m          >>> ENTER THE KEY BELOW <<<\n   \033[1;37m" && read Key
         tput cuu1 && tput dl1
     done
@@ -289,7 +289,7 @@ menu_info() {
     _hora=$(printf '%(%H:%M:%S)T')
     _hoje=$(date +'%d/%m/%Y')
     echo -e "\033[1;37m OS \033[1;31m: \033[1;32m$_system \033[1;37mTIME\033[1;31m: \033[1;32m$_hora  \033[1;37mIP\033[1;31m:\033[1;32m $(meu_ip)"
-    echo -e "\033[1;37m RAM\e[31m: \033[1;32m$_ram \033[1;37mUSED\033[1;31m: \033[1;32m$mb\033[1;37m FREE\033[1;31m: \033[1;32m$_ram2"
+    echo -e "\033[1;37m RAMos\e[31m: \033[1;32m$_ram \033[1;37mUSEDie\033[1;31m: \033[1;32m$mb\033[1;37m FREE\033[1;31m: \033[1;32m$_ram2"
 }
 ofus() {
     unset txtofus
@@ -373,7 +373,7 @@ fun_bar() {
         tput cuu1
         tput dl1
     done
-    echo -e " \033[1;33m[\033[1;31m####################\033[1;33m] - \033[1;32m100%\033[0m"
+    echo -e " \033[1;33m[\033[1;31m##########\033[1;33m] - \033[1;32m100%\033[0m"
     sleep 1s
 }
 meu_ip() {
@@ -601,7 +601,7 @@ systen_info() {
     [[ "$clock" ]] && msg -ama "$(fun_trans "Operation Frequency"): ${null}$clock MHz" || msg -ama "$(fun_trans "Operation Frequency"): ${null}???"
     msg -ama "$(fun_trans "Processor Usage"): ${null}$(ps aux | awk 'BEGIN { sum = 0 }  { sum += sprintf("%f",$3) }; END { printf " " "%.2f" "%%", sum}')"
     msg -ama "$(fun_trans "Total Virtual Memory"): ${null}$(($totalram / 1024))"
-    msg -ama "$(fun_trans "Virtual Memory In Use"): ${null}$(($usedram / 1024))"
+    msg -ama "$(fun_trans "Virtual Memory Ini Use"): ${null}$(($usedram / 1024))"
     msg -ama "$(fun_trans "Free Virtual Memory"): ${null}$(($freeram / 1024))"
     msg -ama "$(fun_trans "Virtual Memory Swap"): ${null}$(($swapram / 1024))MB"
     msg -ama "$(fun_trans "Time Online"): ${null}$(uptime)"
@@ -1264,7 +1264,7 @@ monhtop() {
 msg -bar
 msg -bar3
 on="\e[1;32m[ON]" && off="\e[1;31m[OFF]"
-echo -e " \e[1;93m[\e[92m1\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAGE ACCOUNTS | SSH/SSL/DROP")"
+echo -e " \e[1;93m[\e[92m1\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAjar ACCOUNTS | SSH/SSL/DROP")"
 echo -e " \e[1;93m[\e[92m2\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAGE ACCOUNTS | SS/SSRR")"
 echo -e " \e[1;93m[\e[92m3\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MANAGE ACCOUNTS | V2RAY --> $vra")"
 echo -e " \e[1;93m[\e[92m4\e[93m] $(msg -verm2 "➛ ") \e[1;31m\033[47mPROTOCOLS\e[0m  \e[93m||  \e[1;37m\e[41mTOOLS\e[0m"
