@@ -134,7 +134,7 @@ dependencias() {
     for ((a = 0; a < $puntos; a++)); do
       pts+="."
     done
-    msg -nazu "    installing $i$(msg -ama "$pts")"
+    msg -nazu "    Instalando $i$(msg -ama "$pts")"
     if apt install $i -y &>/dev/null; then
       msg -verd " INSTALADO"
     else
@@ -146,9 +146,9 @@ dependencias() {
       sleep 2
       tput cuu1 && tput dl1
 
-      msg -nazu "    installing $i$(msg -ama "$pts")"
+      msg -nazu "    instalando $i$(msg -ama "$pts")"
       if apt install $i -y &>/dev/null; then
-        msg -verd " INSTALLED"
+        msg -verd " INSTALADO"
       else
         msg -verm2 " ERROR"
       fi
@@ -170,7 +170,7 @@ install_start() {
   msg -bar
   print_center -ama "System packages are updating.\n It may take a while and ask for some confirmations.\n"
   msg -bar3
-  msg -ne "\n Do you wish to continue? [Y/N]: "
+  msg -ne "\n Desea continue? [Y/N]: "
   read opcion
   [[ "$opcion" != @(y|Y) ]] && stop_install
   clear && clear
@@ -187,7 +187,7 @@ install_continue() {
   echo -e "      \e[5m\033[1;100m   COMPLETING PACKAGES FOR THE SCRIPT   \033[1;37m"
   msg -bar
   print_center -ama "$distro $vercion"
-  print_center -verd "INSTALLING DEPENDENCIES"
+  print_center -verd "INSTALANDO DEPENDENCIAS"
   msg -bar3
   dependencias
   msg -bar3
@@ -198,7 +198,7 @@ install_continue() {
   msg -bar
   print_center -ama "If some of the dependencies fail!!!\nwhen finished, you can try to install\nthe same manually using the following command\napt install package_name"
   msg -bar
-  read -t 60 -n 1 -rsp $'\033[1;39m       << Press enter to continue >>\n'
+  read -t 60 -n 1 -rsp $'\033[1;39m       << Press enter para continue >>\n'
 }
 
 while :; do
