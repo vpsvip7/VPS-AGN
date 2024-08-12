@@ -50,7 +50,7 @@ fun_bar() {
     tput cuu1
     tput dl1
   done
-  echo -e " \033[1;33m[\033[1;31m#############################\033[1;33m] - \033[1;32m100%\033[0m"
+  echo -e " \033[1;33m[\033[1;31m#######################\033[1;33m] - \033[1;32m100%\033[0m"
   sleep 1s
 }
 
@@ -136,7 +136,7 @@ dependencias() {
     done
     msg -nazu "    installing $i$(msg -ama "$pts")"
     if apt install $i -y &>/dev/null; then
-      msg -verd " INSTALLED"
+      msg -verd " INSTALADO"
     else
       msg -verm2 " ERROR"
       sleep 2
