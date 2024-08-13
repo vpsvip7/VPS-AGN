@@ -125,7 +125,7 @@ repo() {
 }
 
 dependencias() {
-  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip openssl screen cron iptables lsof pv boxes nano at mlocate gawk grep bc jq   nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat"
+  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip  screen cron iptables lsof pv boxes nano at mlocate gawk grep bc jq   nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
