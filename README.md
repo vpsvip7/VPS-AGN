@@ -1,2 +1,2 @@
 # VPS-AGN
-mod del agn traducido al espa;ol yalgunas mejoras..
+mod del AGN ingles  traducido al español y algunas mejoras..
