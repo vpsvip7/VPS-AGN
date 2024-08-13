@@ -10,7 +10,7 @@ rm -rf /etc/localtime &>/dev/null
 ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
 rm -rf /usr/local/lib/systemubu1 &>/dev/null
 rm -rf /etc/versin_script &>/dev/null
-v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
+v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/Version")
 echo "$v1" >/etc/versin_script
 [[ ! -e /etc/versin_script ]] && echo 1 >/etc/versin_script
 v22=$(cat /etc/versin_script)
@@ -50,7 +50,7 @@ fun_bar() {
     tput cuu1
     tput dl1
   done
-  echo -e " \033[1;33m[\033[1;31m############################\033[1;33m] - \033[1;32m100%\033[0m"
+  echo -e " \033[1;33m[\033[1;31m########################################\033[1;33m] - \033[1;32m100%\033[0m"
   sleep 1s
 }
 
@@ -118,14 +118,14 @@ os_system() {
 }
 
 repo() {
-  link="https://raw.githubusercontent.com/khaledagn/Multi-Script/main/Source-List/20.04.list"
+  link="https://raw.githubusercontent.com/vpsvip7/Multi-Script/main/Source-List/20.04.list"
   case $1 in
   8 | 9 | 10 | 11 | 16.04 | 18.04 | 20.04 | 20.10 | 21.04 | 21.10 | 22.04) wget -O /etc/apt/sources.list ${link} &>/dev/null ;;
   esac
 }
 
 dependencias() {
-  soft="sudo zip unzip ufw curl python python3  screen cron iptables lsof pv  nano at mlocate gawk grep bc jq curl npm nodejs socat netcat net-tools cowsay figlet lolcat"
+  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip openssl screen cron iptables lsof pv boxes nano at mlocate gawk grep bc jq curl npm nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
@@ -157,8 +157,8 @@ dependencias() {
 }
 
 post_reboot() {
-  echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/installer/install-without-key.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
-  title -verd "COMPLETO SYSTEMA UPGRADE"
+  echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/installer/install-without-key.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
+  title -verd "COMPLETED SYSTEM UPGRADE"
   print_center -ama "The installation will continue\nafter rebooting!!!"
   msg -bar
 }
@@ -166,11 +166,11 @@ post_reboot() {
 install_start() {
   msg -bar
 
-  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEMA UPDATE   \033[1;37m"
+  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEM UPDATE   \033[1;37m"
   msg -bar
   print_center -ama "Systema Actualizado.\n casi listo.\n"
   msg -bar3
-  msg -ne "\n Vamos a  continuar? [Y/N]: "
+  msg -ne "\n Vamos a  continue? [Y/N]: "
   read opcion
   [[ "$opcion" != @(y|Y) ]] && stop_install
   clear && clear
@@ -184,7 +184,7 @@ install_start() {
 install_continue() {
   os_system
   msg -bar
-  echo -e "      \e[5m\033[1;100m   COMPLETANDO PAQUETES para SCRIPT   \033[1;37m"
+  echo -e "      \e[5m\033[1;100m   COMPLETANDO PAQUETES FOR THE SCRIPT   \033[1;37m"
   msg -bar
   print_center -ama "$distro $vercion"
   print_center -verd "INSTALANDO DEPENDENCIAS"
@@ -221,12 +221,12 @@ done
 
 clear && clear
 msg -bar2
-echo -e " \e[5m\033[1;100m   =====>> ►► 👽 VPS-AGN - SCRIPT  👽 ◄◄ <<=====   \033[1;37m"
+echo -e " \e[5m\033[1;100m   =====>> ►► 🐲 VPS-AGN - SCRIPT  🐲 ◄◄ <<=====   \033[1;37m"
 msg -bar2
 print_center -ama "AVAILABLE SCRIPT LIST"
 msg -bar
 #-BASH SOPORTE ONLINE
-wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/LINKS-LIBRARIES/SPR.sh -O /usr/bin/SPR >/dev/null 2>&1
+wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/LINKS-LIBRARIES/SPR.sh -O /usr/bin/SPR >/dev/null 2>&1
 chmod +x /usr/bin/SPR
 
 
@@ -241,7 +241,7 @@ install_official() {
   clear && clear
   mkdir /etc/VPS-AGN >/dev/null 2>&1
   cd /etc
-  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
+  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
   tar -xf VPS-AGN.tar.xz >/dev/null 2>&1
   chmod +x VPS-AGN.tar.xz >/dev/null 2>&1
   rm -rf VPS-AGN.tar.xz
@@ -250,7 +250,7 @@ install_official() {
   rm -rf /etc/VPS-AGN/MEUIPvps
   echo "/etc/VPS-AGN/menu" >/usr/bin/menu && chmod +x /usr/bin/menu
   echo "/etc/VPS-AGN/menu" >/usr/bin/VPSAGN && chmod +x /usr/bin/VPSAGN
-  wget https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/LINKS-LIBRARIES/monitor.sh -P /bin/
+  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/LINKS-LIBRARIES/monitor.sh -P /bin/
   echo "$slogan" >/etc/VPS-AGN/message.txt
   [[ ! -d /usr/local/lib ]] && mkdir /usr/local/lib
   [[ ! -d /usr/local/lib/ubuntn ]] && mkdir /usr/local/lib/ubuntn
@@ -271,15 +271,15 @@ install_official() {
   [[ ! -d /etc/VPS-AGN/Slow/install ]] && mkdir /etc/VPS-AGN/Slow/install
   [[ ! -d /etc/VPS-AGN/Slow/Key ]] && mkdir /etc/VPS-AGN/Slow/Key
   touch /usr/share/lognull &>/dev/null
-  wget -O /bin/resetsshdrop https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/LINKS-LIBRARIES/resetsshdrop &>/dev/null
+  wget -O /bin/resetsshdrop https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/LINKS-LIBRARIES/resetsshdrop &>/dev/null
   chmod +x /bin/resetsshdrop
   grep -v "^PasswordAuthentication" /etc/ssh/sshd_config >/tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
   echo "PasswordAuthentication yes" >>/etc/ssh/sshd_config
   rm -rf /usr/local/lib/systemubu1 &>/dev/null
   rm -rf /etc/versin_script &>/dev/null
-  v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
+  v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/Version")
   echo "$v1" >/etc/versin_script
-  wget -O /etc/versin_script_new https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version &>/dev/null
+  wget -O /etc/versin_script_new https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/Version &>/dev/null
   echo '#!/bin/sh -e' >/etc/rc.local
   sudo chmod +x /etc/rc.local
   echo "sudo resetsshdrop" >>/etc/rc.local
@@ -293,7 +293,7 @@ install_official() {
   echo 'echo -e "\t\033[91m   \ \/ / |  ___/ \___ \______/ /\ \| | |_ |     |  " ' >>.bashrc
   echo 'echo -e "\t\033[91m    \  /  | |     ____) |    / ____ \ |__| | |\  | " ' >>.bashrc
   echo 'echo -e "\t\033[91m     \/   |_|    |_____/    /_/    \_\_____|_| \_|" ' >>.bashrc
-  echo 'wget -O /etc/versin_script_new https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version &>/dev/null' >>.bashrc
+  echo 'wget -O /etc/versin_script_new https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/Version &>/dev/null' >>.bashrc
   echo 'echo "" ' >>.bashrc
   echo 'mess1="$(less /etc/VPS-AGN/message.txt)" ' >>.bashrc
   echo 'echo "" ' >>.bashrc
