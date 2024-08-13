@@ -28,7 +28,7 @@ msg() {
   -bra) cor="${RED}" && echo -ne "${cor}${2}${SEMCOR}" ;;
   -nazu) cor="${COLOR[6]}${BLACK}" && echo -ne "${cor}${2}${SEMCOR}" ;;
   -gri) cor="\e[5m\033[1;100m" && echo -ne "${cor}${2}${SEMCOR}" ;;
-  "-bar2" | "-bar") cor="${RED}———————————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+  "-bar2" | "-bar") cor="${RED}————————————————————————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   esac
 }
 fun_bar() {
@@ -50,7 +50,7 @@ fun_bar() {
     tput cuu1
     tput dl1
   done
-  echo -e " \033[1;33m[\033[1;31m#######################\033[1;33m] - \033[1;32m100%\033[0m"
+  echo -e " \033[1;33m[\033[1;31m############################\033[1;33m] - \033[1;32m100%\033[0m"
   sleep 1s
 }
 
@@ -125,7 +125,7 @@ repo() {
 }
 
 dependencias() {
-  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip  screen cron iptables lsof pv boxes nano at mlocate gawk grep bc jq   nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat"
+  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip openssl screen cron iptables lsof pv boxes nano at mlocate gawk grep bc jq curl npm nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
@@ -134,9 +134,9 @@ dependencias() {
     for ((a = 0; a < $puntos; a++)); do
       pts+="."
     done
-    msg -nazu "    Instalando $i$(msg -ama "$pts")"
+    msg -nazu "    installing $i$(msg -ama "$pts")"
     if apt install $i -y &>/dev/null; then
-      msg -verd " INSTALADO"
+      msg -verd " INSTALLED"
     else
       msg -verm2 " ERROR"
       sleep 2
@@ -146,9 +146,9 @@ dependencias() {
       sleep 2
       tput cuu1 && tput dl1
 
-      msg -nazu "    instalando $i$(msg -ama "$pts")"
+      msg -nazu "    installing $i$(msg -ama "$pts")"
       if apt install $i -y &>/dev/null; then
-        msg -verd " INSTALADO"
+        msg -verd " INSTALLED"
       else
         msg -verm2 " ERROR"
       fi
@@ -158,7 +158,7 @@ dependencias() {
 
 post_reboot() {
   echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/installer/install-without-key.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
-  title -verd "COMPLETO el SYSTEM UPGRADE"
+  title -verd "COMPLETO SYSTEMA UPGRADE"
   print_center -ama "The installation will continue\nafter rebooting!!!"
   msg -bar
 }
@@ -166,16 +166,16 @@ post_reboot() {
 install_start() {
   msg -bar
 
-  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEM UPDATE   \033[1;37m"
+  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEMA UPDATE   \033[1;37m"
   msg -bar
-  print_center -ama "System packages are updating.\n It may take a while and ask for some confirmations.\n"
+  print_center -ama "Systema Actualizado.\n casi listo.\n"
   msg -bar3
-  msg -ne "\n Desea continue? [Y/N]: "
+  msg -ne "\n Vamos a  continuar? [Y/N]: "
   read opcion
   [[ "$opcion" != @(y|Y) ]] && stop_install
   clear && clear
   msg -bar
-  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEM UPDATE   \033[1;37m"
+  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEMA UPDATE   \033[1;37m"
   msg -bar
   os_system
   apt update -y
@@ -184,7 +184,7 @@ install_start() {
 install_continue() {
   os_system
   msg -bar
-  echo -e "      \e[5m\033[1;100m   COMPLETING PACKAGES FOR THE SCRIPT   \033[1;37m"
+  echo -e "      \e[5m\033[1;100m   COMPLETANDO PAQUETES para SCRIPT   \033[1;37m"
   msg -bar
   print_center -ama "$distro $vercion"
   print_center -verd "INSTALANDO DEPENDENCIAS"
@@ -198,7 +198,7 @@ install_continue() {
   msg -bar
   print_center -ama "If some of the dependencies fail!!!\nwhen finished, you can try to install\nthe same manually using the following command\napt install package_name"
   msg -bar
-  read -t 60 -n 1 -rsp $'\033[1;39m       << Press enter para continue >>\n'
+  read -t 60 -n 1 -rsp $'\033[1;39m       << Press enter to continue >>\n'
 }
 
 while :; do
@@ -221,7 +221,7 @@ done
 
 clear && clear
 msg -bar2
-echo -e " \e[5m\033[1;100m   =====>> ►► 🐲 VPS-AGN - SCRIPT  🐲 ◄◄ <<=====   \033[1;37m"
+echo -e " \e[5m\033[1;100m   =====>> ►► 👽 VPS-AGN - SCRIPT  👽 ◄◄ <<=====   \033[1;37m"
 msg -bar2
 print_center -ama "AVAILABLE SCRIPT LIST"
 msg -bar
@@ -234,7 +234,7 @@ chmod +x /usr/bin/SPR
 install_official() {
   clear && clear
   msg -bar
-  echo -ne "\033[1;97m Type your slogan: \033[1;32m" && read slogan
+  echo -ne "\033[1;97m Escribe tu Nick: \033[1;32m" && read slogan
   tput cuu1 && tput dl1
   echo -e "$slogan"
   msg -bar
@@ -250,7 +250,7 @@ install_official() {
   rm -rf /etc/VPS-AGN/MEUIPvps
   echo "/etc/VPS-AGN/menu" >/usr/bin/menu && chmod +x /usr/bin/menu
   echo "/etc/VPS-AGN/menu" >/usr/bin/VPSAGN && chmod +x /usr/bin/VPSAGN
-  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/LINKS-LIBRARIES/monitor.sh -P /bin/
+  wget https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/LINKS-LIBRARIES/monitor.sh -P /bin/
   echo "$slogan" >/etc/VPS-AGN/message.txt
   [[ ! -d /usr/local/lib ]] && mkdir /usr/local/lib
   [[ ! -d /usr/local/lib/ubuntn ]] && mkdir /usr/local/lib/ubuntn
@@ -271,7 +271,7 @@ install_official() {
   [[ ! -d /etc/VPS-AGN/Slow/install ]] && mkdir /etc/VPS-AGN/Slow/install
   [[ ! -d /etc/VPS-AGN/Slow/Key ]] && mkdir /etc/VPS-AGN/Slow/Key
   touch /usr/share/lognull &>/dev/null
-  wget -O /bin/resetsshdrop https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/LINKS-LIBRARIES/resetsshdrop &>/dev/null
+  wget -O /bin/resetsshdrop https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/LINKS-LIBRARIES/resetsshdrop &>/dev/null
   chmod +x /bin/resetsshdrop
   grep -v "^PasswordAuthentication" /etc/ssh/sshd_config >/tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
   echo "PasswordAuthentication yes" >>/etc/ssh/sshd_config
@@ -300,7 +300,7 @@ install_official() {
   echo 'echo -e "\t\033[92mRESELLER : $mess1 "' >>.bashrc
   echo 'echo -e "\t\e[1;33mVERSION: \e[1;31m$(cat /etc/versin_script_new)"' >>.bashrc
   echo 'echo "" ' >>.bashrc
-  echo 'echo -e "\t\033[97mTO DISPLAY BASH PANEL TYPE: sudo VPSAGN or menu "' >>.bashrc
+  echo 'echo -e "\t\033[97m BASH PANEL Escribe: sudo VPSAGN o menu "' >>.bashrc
   echo 'echo ""' >>.bashrc
   rm -rf /usr/bin/pytransform &>/dev/null
   rm -rf VPS-AGN.sh
@@ -308,8 +308,8 @@ install_official() {
   service ssh restart &>/dev/null
   clear && clear
   msg -bar
-  echo -e "\e[1;92m             >> INSTALLATION COMPLETED <<" && msg bar2
-  echo -e "      MAIN COMMAND TO ENTER THE PANEL "
+  echo -e "\e[1;92m             >> INSTALACION LISTA <<" && msg bar2
+  echo -e "      PARA INGRESAR ESCRIBIR 👇🏻👇🏻 "
   echo -e "                      \033[1;41m  menu  \033[0;37m" && msg -bar2
 }
 
