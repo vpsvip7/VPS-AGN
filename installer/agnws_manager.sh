@@ -21,11 +21,11 @@ show_menu() {
    clear
    display_banner
    echo "Websocket VPN Manager Menu"
-   echo "1. Check Server Status"
+   echo "1. Checker Server Status"
    echo "2. Manage SSH Users"
-   echo "3. Change Listening Port"
-   echo "4. Restart WebSocket Service"
-   echo "5. Uninstall Websocket"
+   echo "3. Editar  Puerto WS-3"
+   echo "4. Reiniciat WebSocket "
+   echo "5. Desinstalar Websocket"
    echo "6. Server Information"
    echo "7. Exit"
 }
