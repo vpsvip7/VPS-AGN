@@ -159,14 +159,14 @@ dependencias() {
 post_reboot() {
   echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/installer/install-without-key.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
   title -verd "COMPLETADO SYSTEM UPGRADE"
-  print_center -ama "The installation will continue\nafter rebooting!!!"
+  print_center -ama "Vamos a continuar \ndespjes de reboot!!!"
   msg -bar
 }
 
 install_start() {
   msg -bar
 
-  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEM UPDATE   \033[1;37m"
+  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEM UPDATE ⏳   \033[1;37m"
   msg -bar
   print_center -ama "Systema Actualizado.\n casi listo.\n"
   msg -bar3
@@ -175,7 +175,7 @@ install_start() {
   [[ "$opcion" != @(y|Y) ]] && stop_install
   clear && clear
   msg -bar
-  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEMA UPDATE   \033[1;37m"
+  echo -e "\e[1;97m           \e[5m\033[1;100m   SYSTEMA UPDATE ⏳  \033[1;37m"
   msg -bar
   os_system
   apt update -y
@@ -203,7 +203,7 @@ install_continue() {
 
 while :; do
   case $1 in
-  -s | --start) install_start && post_reboot && time_reboot "15" ;;
+  -s | --start) install_start && post_reboot && time_reboot "10" ;;
   -c | --continue)
     #rm /root/install-without-key.sh &>/dev/null
     sed -i '/installer/d' /root/.bashrc
