@@ -1,16 +1,16 @@
 #!/bin/bash
 clear && clear
 rm -rf /etc/localtime &>/dev/null
-ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
+ln -s /usr/share/zoneinfo/America/Argentina /etc/localtime &>/dev/null
 
 apt install net-tools -y &>/dev/null
 myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1)
 myint=$(ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}')
 rm -rf /etc/localtime &>/dev/null
-ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
+ln -s /usr/share/zoneinfo/America/Argentina /etc/localtime &>/dev/null
 rm -rf /usr/local/lib/systemubu1 &>/dev/null
 rm -rf /etc/versin_script &>/dev/null
-v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/Version")
+v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
 echo "$v1" >/etc/versin_script
 [[ ! -e /etc/versin_script ]] && echo 1 >/etc/versin_script
 v22=$(cat /etc/versin_script)
@@ -28,7 +28,7 @@ msg() {
   -bra) cor="${RED}" && echo -ne "${cor}${2}${SEMCOR}" ;;
   -nazu) cor="${COLOR[6]}${BLACK}" && echo -ne "${cor}${2}${SEMCOR}" ;;
   -gri) cor="\e[5m\033[1;100m" && echo -ne "${cor}${2}${SEMCOR}" ;;
-  "-bar2" | "-bar") cor="${RED}————————————————————————————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
+  "-bar2" | "-bar") cor="${RED}———————————————————————————————" && echo -e "${SEMCOR}${cor}${SEMCOR}" ;;
   esac
 }
 fun_bar() {
@@ -50,7 +50,7 @@ fun_bar() {
     tput cuu1
     tput dl1
   done
-  echo -e " \033[1;33m[\033[1;31m##########################\033[1;33m] - \033[1;32m100%\033[0m"
+  echo -e " \033[1;33m[\033[1;31m##################\033[1;33m] - \033[1;32m100%\033[0m"
   sleep 1s
 }
 
@@ -136,7 +136,7 @@ dependencias() {
     done
     msg -nazu "    installing $i$(msg -ama "$pts")"
     if apt install $i -y &>/dev/null; then
-      msg -verd " INSTALLED"
+      msg -verd " INSTALADO"
     else
       msg -verm2 " ERROR"
       sleep 2
@@ -148,7 +148,7 @@ dependencias() {
 
       msg -nazu "    installing $i$(msg -ama "$pts")"
       if apt install $i -y &>/dev/null; then
-        msg -verd " INSTALLED"
+        msg -verd " INSTALADO"
       else
         msg -verm2 " ERROR"
       fi
