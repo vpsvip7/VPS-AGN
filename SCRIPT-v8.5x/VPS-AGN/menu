@@ -117,7 +117,7 @@ fun_trans() {
     local LINGUAGE=$(cat ${SCPidioma})
     [[ -z $LINGUAGE ]] && LINGUAGE=en
     [[ $LINGUAGE = "en" ]] && echo "$@" && return
-    [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/LINKS-LIBRARIES/trans &>/dev/null
+    [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/LINKS-LIBRARIES/trans &>/dev/null
     [[ ! -e /etc/VPS-AGN/texto-mx ]] && touch /etc/VPS-AGN/texto-mx
     source /etc/VPS-AGN/texto-mx
     if [[ -z "$(echo ${texto[$@]})" ]]; then
@@ -130,10 +130,10 @@ fun_trans() {
 }
 function_verify() {
 
-    v1=$(curl -sSL "https://raw.githubusercontent.com/khaledagn/VPS-AGN_English_Official/master/SCRIPT-v8.5x/Version")
+    v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
     echo "$v1" >/etc/versin_script
 }
-atualiza_fun() { wget https://raw.githubusercontent.com/vpsvip7/VPS-MX/main/install-without-key.sh; chmod 777 install-without-key.sh; ./install-without-key.sh --start
+atualiza_fun() { wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/install-without-key.sh; chmod 777 install-without-key.sh; ./install-without-key.sh --start
     }
     error_fun() {
         msg -bar2 && msg -verm "ERROR between VPS<-->GENERATOR (Port 81 TCP)" && msg -bar2
