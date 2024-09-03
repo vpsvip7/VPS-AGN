@@ -96,7 +96,7 @@ stop_install() {
 }
 
 time_reboot() {
-  print_center -ama "RESTARTING VPS IN $1 SECONDS"
+  print_center -ama "REINICIAMOS TU VPS EN $1 SECONDS"
   REBOOT_TIMEOUT="$1"
 
   while [ $REBOOT_TIMEOUT -gt 0 ]; do
@@ -158,7 +158,7 @@ dependencias() {
 
 post_reboot() {
   echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/installer/install-without-key.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
-  title -verd "COMPLETED SYSTEM UPGRADE"
+  title -verd "COMPLETADO SYSTEM UPGRADE"
   print_center -ama "The installation will continue\nafter rebooting!!!"
   msg -bar
 }
@@ -170,7 +170,7 @@ install_start() {
   msg -bar
   print_center -ama "Systema Actualizado.\n casi listo.\n"
   msg -bar3
-  msg -ne "\n Vamos a  continue? [Y/N]: "
+  msg -ne "\n Vamos a  continuar? [Y/N]: "
   read opcion
   [[ "$opcion" != @(y|Y) ]] && stop_install
   clear && clear
@@ -184,19 +184,19 @@ install_start() {
 install_continue() {
   os_system
   msg -bar
-  echo -e "      \e[5m\033[1;100m   COMPLETANDO PAQUETES FOR THE SCRIPT   \033[1;37m"
+  echo -e "      \e[5m\033[1;100m   PAQUETES Para El SCRIPT   \033[1;37m"
   msg -bar
   print_center -ama "$distro $vercion"
   print_center -verd "INSTALANDO DEPENDENCIAS"
   msg -bar3
   dependencias
   msg -bar3
-  print_center -azu "Removing obsolete packages"
+  print_center -azu "Removing obsolete paquetes"
   apt autoremove -y &>/dev/null
   sleep 2
   tput cuu1 && tput dl1
   msg -bar
-  print_center -ama "If some of the dependencies fail!!!\nwhen finished, you can try to install\nthe same manually using the following command\napt install package_name"
+  print_center -ama "If some of the dependencies fallo!!!\nwhen finished, you can try to install\nthe same manually using the following command\napt install package_name"
   msg -bar
   read -t 60 -n 1 -rsp $'\033[1;39m       << Press enter to continue >>\n'
 }
@@ -221,7 +221,7 @@ done
 
 clear && clear
 msg -bar2
-echo -e " \e[5m\033[1;100m   =====>> ►► 👽 VPS-AGN - SCRIPT  👽 ◄◄ <<=====   \033[1;37m"
+echo -e " \e[5m\033[1;100m   =====>> ►► 👽 VPS-AGN - SCRIPT  mod👽 ◄◄ <<=====   \033[1;37m"
 msg -bar2
 print_center -ama "AVAILABLE SCRIPT LIST"
 msg -bar
