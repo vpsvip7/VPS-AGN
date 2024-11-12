@@ -241,7 +241,7 @@ install_official() {
   clear && clear
   mkdir /etc/VPS-AGN >/dev/null 2>&1
   cd /etc
-  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/master/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
+  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/refs/heads/main/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
   tar -xf VPS-AGN.tar.xz >/dev/null 2>&1
   chmod +x VPS-AGN.tar.xz >/dev/null 2>&1
   rm -rf VPS-AGN.tar.xz
