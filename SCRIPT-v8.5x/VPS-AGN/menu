@@ -1243,7 +1243,7 @@ msg -bar
 msg -bar3
 on="\e[1;32m[ON]" && off="\e[1;31m[OFF]"
 echo -e " \e[1;93m[\e[92m1\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MENU USUARIOS | SSH/SSL/DROP")"
-echo -e " \e[1;93m[\e[92m2\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MENU USUARIOS | PY/UDY")"
+echo -e " \e[1;93m[\e[92m2\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MENU USUARIOS | 2025")"
 echo -e " \e[1;93m[\e[92m3\e[93m] $(msg -verm2 "➛ ") $(msg -azu "MENU USUARIOS | V2RAY --> $vra")"
 echo -e " \e[1;93m[\e[92m4\e[93m] $(msg -verm2 "➛ ") \e[1;37m\e[41mINSTALADOR\e[0m  \e[93m||  \e[1;37m\e[41mTOOLS\e[0m"
 echo -e " \e[1;93m[\e[92m5\e[93m] $(msg -verm2 "➛ ") $(msg -azu "PROTOCOLS MONITOR --------> ${monitorservi}")"
@@ -1254,7 +1254,7 @@ msg -bar
 selection=$(selection_fun 13)
 case ${selection} in
 1) ${SCPusr}/usercodes ;;
-2) ${SCPinst}/C-SSR.sh ;;
+2) speedtest ;;
 3) ${SCPinst}/v2ray.sh ;;
 4) menu3 ;;
 5) monservi_fun ;;
