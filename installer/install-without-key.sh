@@ -125,7 +125,7 @@ repo() {
 }
 
 dependencias() {
-  soft="sudo bsdmainutils zip unzip ufw curl python python3 python3-pip  screen cron iptables lsof pv  nano at mlocate gawk grep bc jq curl npm nodejs socat netcat netcat-traditional net-tools cowsay figlet lolcat"
+  soft="sudo  zip unzip ufw curl  screen cron iptables lsof pv  nano at mlocate gawk grep bc jq   socat cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
@@ -134,7 +134,7 @@ dependencias() {
     for ((a = 0; a < $puntos; a++)); do
       pts+="."
     done
-    msg -nazu "    installing $i$(msg -ama "$pts")"
+    msg -nazu "    instalando $i$(msg -ama "$pts")"
     if apt install $i -y &>/dev/null; then
       msg -verd " INSTALADO"
     else
@@ -146,7 +146,7 @@ dependencias() {
       sleep 2
       tput cuu1 && tput dl1
 
-      msg -nazu "    installing $i$(msg -ama "$pts")"
+      msg -nazu "    instalando $i$(msg -ama "$pts")"
       if apt install $i -y &>/dev/null; then
         msg -verd " INSTALADO"
       else
