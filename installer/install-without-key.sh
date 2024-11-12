@@ -125,7 +125,7 @@ repo() {
 }
 
 dependencias() {
-  soft="sudo  zip unzip ufw curl  screen cron iptables lsof pv  nano at mlocate gawk grep bc jq   socat cowsay figlet lolcat"
+  soft="sudo  zip unzip ufw curl  screen cron  lsof pv  nano at mlocate gawk grep bc jq   socat cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
