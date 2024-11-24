@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Constants
-PYTHON_SCRIPT_URL="https://raw.githubusercontent.com/vpsvip7/VPS-AGN/refs/heads/main/installer/agn1.py"
-AGN_MANAGER_SCRIPT_URL=https://raw.githubusercontent.com/vpsvip7/VPS-AGN/refs/heads/main/installer/manager2.sh"
-INSTALL_DIR="/opt/agn_websocket2"
+PYTHON_SCRIPT_URL="https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/installer/agn_websocket.py"
+AGN_MANAGER_SCRIPT_URL="https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/installer/agnws_manager.sh"
+INSTALL_DIR="/opt/agn_websocket"
 SYSTEMD_SERVICE_FILE="/etc/systemd/system/agn-websocket.service"
 PYTHON_BIN=$(command -v python3)  # Ensure python3 is available
-AGN_MANAGER_SCRIPT="manager2.sh"
+AGN_MANAGER_SCRIPT="agnws_manager.sh"
 AGN_MANAGER_PATH="$INSTALL_DIR/$AGN_MANAGER_SCRIPT"
 AGN_MANAGER_LINK="/usr/local/bin/websocket"
 
@@ -22,10 +22,10 @@ install_required_packages() {
 # Function to download Python proxy script using wget
 download_agn_websocket() {
     echo "Downloading Python proxy script from $PYTHON_SCRIPT_URL..."
-    wget -O "$INSTALL_DIR/agn1.py" "$PYTHON_SCRIPT_URL"
+    wget -O "$INSTALL_DIR/agn_websocket.py" "$PYTHON_SCRIPT_URL"
 }
 
-# Function to download manager2.sh script using wget
+# Function to download agnws_manager.sh script using wget
 download_agnws_manager() {
     echo "Downloading $AGN_MANAGER_SCRIPT from $AGN_MANAGER_SCRIPT_URL..."
     wget -O "$AGN_MANAGER_PATH" "$AGN_MANAGER_SCRIPT_URL"
@@ -57,7 +57,7 @@ Description=Python Proxy Service
 After=network.target
 
 [Service]
-ExecStart=$PYTHON_BIN $INSTALL_DIR/agn1.py 8088
+ExecStart=$PYTHON_BIN $INSTALL_DIR/agn_websocket.py 8098
 Restart=always
 User=root
 Group=root
@@ -76,7 +76,7 @@ display_banner() {
     cat << "EOF"
 **********************************************
 *                                            *
-*                Khaled AGN   v2             *
+*                Khaled AGN                  *
 *      Visit me on Telegram: @khaledagn      *
 *                                            *
 **********************************************
@@ -113,7 +113,7 @@ main() {
     # Download Python proxy script
     download_agn_websocket
 
-    # Download manager2.sh script
+    # Download agnws_manager.sh script
     download_agnws_manager
 
     # Install systemd service
