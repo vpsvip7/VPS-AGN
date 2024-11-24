@@ -25,7 +25,7 @@ download_agn_websocket() {
     wget -O "$INSTALL_DIR/agn_websocket.py" "$PYTHON_SCRIPT_URL"
 }
 
-# Function to download agnws_manager.sh script using wget
+# Function to download manager2.sh script using wget
 download_agnws_manager() {
     echo "Downloading $AGN_MANAGER_SCRIPT from $AGN_MANAGER_SCRIPT_URL..."
     wget -O "$AGN_MANAGER_PATH" "$AGN_MANAGER_SCRIPT_URL"
