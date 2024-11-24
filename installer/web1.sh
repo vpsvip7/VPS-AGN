@@ -76,7 +76,7 @@ display_banner() {
     cat << "EOF"
 **********************************************
 *                                            *
-*                Khaled AGN                  *
+*                Khaled AGN   v1.7           *
 *      Visit me on Telegram: @khaledagn      *
 *                                            *
 **********************************************
