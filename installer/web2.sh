@@ -6,7 +6,7 @@ AGN_MANAGER_SCRIPT_URL=https://raw.githubusercontent.com/vpsvip7/VPS-AGN/refs/he
 INSTALL_DIR="/opt/agn_websocket"
 SYSTEMD_SERVICE_FILE="/etc/systemd/system/agn-websocket.service"
 PYTHON_BIN=$(command -v python3)  # Ensure python3 is available
-AGN_MANAGER_SCRIPT="agnws_manager.sh"
+AGN_MANAGER_SCRIPT="manager2.sh"
 AGN_MANAGER_PATH="$INSTALL_DIR/$AGN_MANAGER_SCRIPT"
 AGN_MANAGER_LINK="/usr/local/bin/websocket"
 
