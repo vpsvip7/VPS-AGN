@@ -3,7 +3,7 @@ import socket, threading, select, sys, getopt, time
 
 # Listen
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 8098  # Default port 8098
+LISTENING_PORT = 8088  # Default port 8088
 
 # Pass
 PASS = ''
