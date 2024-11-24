@@ -22,7 +22,7 @@ install_required_packages() {
 # Function to download Python proxy script using wget
 download_agn_websocket() {
     echo "Downloading Python proxy script from $PYTHON_SCRIPT_URL..."
-    wget -O "$INSTALL_DIR/agn_websocket.py" "$PYTHON_SCRIPT_URL"
+    wget -O "$INSTALL_DIR/agn1.py" "$PYTHON_SCRIPT_URL"
 }
 
 # Function to download manager2.sh script using wget
@@ -57,7 +57,7 @@ Description=Python Proxy Service
 After=network.target
 
 [Service]
-ExecStart=$PYTHON_BIN $INSTALL_DIR/agn_websocket.py 8098
+ExecStart=$PYTHON_BIN $INSTALL_DIR/agn1.py 8088
 Restart=always
 User=root
 Group=root
@@ -76,7 +76,7 @@ display_banner() {
     cat << "EOF"
 **********************************************
 *                                            *
-*                Khaled AGN                  *
+*                Khaled AGN   v2             *
 *      Visit me on Telegram: @khaledagn      *
 *                                            *
 **********************************************
@@ -113,7 +113,7 @@ main() {
     # Download Python proxy script
     download_agn_websocket
 
-    # Download agnws_manager.sh script
+    # Download manager2.sh script
     download_agnws_manager
 
     # Install systemd service
