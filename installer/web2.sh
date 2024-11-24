@@ -2,7 +2,7 @@
 
 # Constants
 PYTHON_SCRIPT_URL="https://raw.githubusercontent.com/vpsvip7/VPS-AGN/refs/heads/main/installer/agn1.py"
-AGN_MANAGER_SCRIPT_URL="https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/installer/agnws_manager.sh"
+AGN_MANAGER_SCRIPT_URL=https://raw.githubusercontent.com/vpsvip7/VPS-AGN/refs/heads/main/installer/manager2.sh"
 INSTALL_DIR="/opt/agn_websocket"
 SYSTEMD_SERVICE_FILE="/etc/systemd/system/agn-websocket.service"
 PYTHON_BIN=$(command -v python3)  # Ensure python3 is available
