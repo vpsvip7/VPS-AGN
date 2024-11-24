@@ -3,7 +3,7 @@ import socket, threading, select, sys, getopt, time
 
 # Listen
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 8098  # Default port 8098
+LISTENING_PORT = 8088  # Default port 8088
 
 # Pass
 PASS = ''
@@ -12,7 +12,7 @@ PASS = ''
 BUFLEN = 4096 * 4
 TIMEOUT = 60
 DEFAULT_HOST = '127.0.0.1:22'
-RESPONSE = 'HTTP/1.1 101 Web Socket mod\r\nConnection: Upgrade\r\nUpgrade: websocket\r\n\r\nHTTP/1.1 200 Connection Established\r\n\r\n'
+RESPONSE = 'HTTP/1.1 200 " wep247 "\r\n\r\n"'
 
 class Server(threading.Thread):
     def __init__(self, host, port):
