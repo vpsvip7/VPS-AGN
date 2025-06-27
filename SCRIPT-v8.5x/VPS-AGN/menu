@@ -673,7 +673,10 @@ menu3() {
     16) net ;;
     17) cache ;;
     18) ${SCPfrm}/ultrahost ;;
-    19) ${SCPfrm}/speed.py ;;
+    19) clear
+   speedtest
+   echo -ne "\n\033[1;31mENTER \033[1;33mpara VOLVER al \033[1;32mMENU!\033[0m"; read
+   ;;
     20) oracl ;;
     21) extra ;;
     *)
