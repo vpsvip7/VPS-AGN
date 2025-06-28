@@ -385,7 +385,7 @@
  echo ""
  msg -bar
  add_hwid "${usuario}" "${hwid}" "${diasuser}"
- msg -ne "$(fun_trans "  >> IP"): " && echo -e "$(meu_ip)"
+ msg -ne "$(fun_trans "  >> IP"): " && echo -e "$IP"
  msg -ne "$(fun_trans "  >> Usuario"): " && echo -e "$usuario"
  msg -ne "$(fun_trans "  >> HWID"): " && echo -e "$hwid"
  msg -ne "$(fun_trans "  >> Dias de Duracion"): " && echo -e "$diasuser"
@@ -456,7 +456,7 @@
  echo ""
  msg -bar
  add_token "${usuario}" "${toke}" "${diasuser}"
- msg -ne "$(fun_trans "  >> IP"): " && echo -e "$(meu_ip)"
+ msg -ne "$(fun_trans "  >> IP"): " && echo -e "$IP"
  msg -ne "$(fun_trans "  >> Usuario"): " && echo -e "$usuario"
  msg -ne "$(fun_trans "  >> TOKEN"): " && echo -e "$toke"
  msg -ne "$(fun_trans "  >> Dias de Duracion"): " && echo -e "$diasuser"
@@ -680,8 +680,8 @@
  clear
  add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" #&& msg -ama "$(fun_trans "            Usuario Creado con Exito")" || msg -verm "$(fun_trans "         Error, Usuario NO creado")"
  msg -bar
- msg -ne "$(fun_trans "  >> WS"): " && echo -e "$(meu_ip):80@$nomeuser:$senhauser"
- msg -ne "$(fun_trans "  >> UDP"): " && echo -e "$(meu_ip):1-65535@$nomeuser:$senhauser"
+ msg -ne "$(fun_trans "  >> WS"): " && echo -e "$IP:80@$nomeuser:$senhauser"
+ msg -ne "$(fun_trans "  >> UDP"): " && echo -e "$IP:1-65535@$nomeuser:$senhauser"
  msg -ne "$(fun_trans "  >> Dias de Duracion"): " && echo -e "$diasuser"
  msg -ne "$(fun_trans "  >> Fecha de Expiracion"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
  msg -ne "$(fun_trans "  >> Limite de Conexion"): " && echo -e "$limiteuser"
