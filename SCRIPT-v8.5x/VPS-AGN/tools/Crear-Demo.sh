@@ -1,5 +1,5 @@
 #!/bin/bash
- #24/01/2021
+ #28/06/2025
  clear
  clear
  msg -bar
@@ -78,10 +78,10 @@
  msg -bar2
  echo -e "\033[1;93m ¡¡ TEMPORARY USER x MINUTES (VPS-AGN By @KhaledAGN) !!\033[0m"
  msg -bar2
- echo -e "\033[1;36m  >> Server IP: \033[0m$(meu_ip) " 
- echo -e "\033[1;36m  >> User: \033[0m$name"
+ echo -e "\033[1;36m  >> Server IP: \033[0m$IP " 
+ echo -e "\033[1;36m  >> Usuario: \033[0m$name"
  echo -e "\033[1;36m  >> Password: \033[0m$pass"
- echo -e "\033[1;36m  >> Duration Minutes: \033[0m$tmp"
+ echo -e "\033[1;36m  >> Duracion Minutes: \033[0m$tmp"
  msg -bar2
  msg -ne " Enter To Continue" && read enter
  ${SCPusr}/usercodes
