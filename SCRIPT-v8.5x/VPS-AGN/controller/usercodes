@@ -680,8 +680,8 @@
  clear
  add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" #&& msg -ama "$(fun_trans "            Usuario Creado con Exito")" || msg -verm "$(fun_trans "         Error, Usuario NO creado")"
  msg -bar
- msg -ne "$(fun_trans "  >> WS"): " && echo -e "$IP:80@$nomeuser:$senhauser"
- msg -ne "$(fun_trans "  >> UDP"): " && echo -e "${null}$(ip addr | grep inet | grep -v inet6 | grep -v "host lo" | awk '{print $2}' | awk -F "/" '{print $1}')":1-65535@$nomeuser:$senhauser"
+ msg -ne "$(fun_trans "  >> WS"): " && echo -e "www.personal.com:80@$nomeuser:$senhauser"
+ msg -ne "$(fun_trans "  >> SSL"): " && echo -e "www.googleapis.com:443@$nomeuser:$senhauser"
  msg -ne "$(fun_trans "  >> Dias de Duracion"): " && echo -e "$diasuser"
  msg -ne "$(fun_trans "  >> Fecha de Expiracion"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
  msg -ne "$(fun_trans "  >> Limite de Conexion"): " && echo -e "$limiteuser"
