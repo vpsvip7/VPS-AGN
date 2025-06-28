@@ -38,12 +38,12 @@
  exit" > /tmp/$2
  }
  echo  -e "$(msg -tit)$(msg -bar) " 
- msg -ama "        CREATE USER BY TIME (Minutes)"
+ msg -ama "        CREAR USER POR HORA y (Minutos)"
  msg -bar
- echo -e "\033[1;97m Users you create in this option will\n be deleted automatically after the designated time.\033[0m"
+ echo -e "\033[1;97m USER CREADO EN opcion will\n be deleted automatico despues del minuto.\033[0m"
  msg -bar
  
- echo -e "\033[1;91m [1]-\033[1;97mUser name:\033[0;37m"; read -p " " name
+ echo -e "\033[1;91m [1]-\033[1;97mNombre User:\033[0;37m"; read -p " " name
  if [[ -z $name ]]
  then
  echo "The New User has not been typed"
@@ -51,11 +51,11 @@
  fi
  if cat /etc/passwd |grep $name: |grep -vi [a-z]$name |grep -v [0-9]$name > /dev/null
  then
- echo -e "\033[1;31mUser $name already exist\033[0m"
+ echo -e "\033[1;31mUser $name Ya exist\033[0m"
  exit
  fi
  echo -e "\033[1;91m [2]-\033[1;97mPassword for user $name:\033[0;37m"; read -p " " pass
- echo -e "\033[1;91m [3]-\033[1;97mDuration Time In Minutes:\033[0;37m"; read -p " " tmp
+ echo -e "\033[1;91m [3]-\033[1;97mDURACION Tiempo EN Minutes:\033[0;37m"; read -p " " tmp
  if [ "$tmp" = "" ]; then
  tmp="30"
  echo -e "\033[1;32mIt was defined 30 minutes by default!\033[0m"
@@ -76,14 +76,14 @@
  echo "pass: $pass" >> /etc/VPS-AGN/demo-ssh/$name
  echo "data: ($tmp)Minutes" >> /etc/VPS-AGN/demo-ssh/$name
  msg -bar2
- echo -e "\033[1;93m ¡¡ TEMPORARY USER x MINUTES (VPS-AGN By @KhaledAGN) !!\033[0m"
+ echo -e "\033[1;93m ¡¡ TEMPORAL USER x MINUTOS (VPS-AGN By @KhaledAGN) !!\033[0m"
  msg -bar2
- echo -e "\033[1;36m  >> Server IP: \033[0m$IP " 
+ echo -e           "www.personal.com.ar:80@$name:$pass " 
  echo -e "\033[1;36m  >> Usuario: \033[0m$name"
  echo -e "\033[1;36m  >> Password: \033[0m$pass"
  echo -e "\033[1;36m  >> Duracion Minutes: \033[0m$tmp"
  msg -bar2
- msg -ne " Enter To Continue" && read enter
+ msg -ne " Enter Para Continuar" && read enter
  ${SCPusr}/usercodes
  
   
