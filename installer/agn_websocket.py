@@ -3,7 +3,7 @@ import socket, threading, select, sys, getopt, time
 
 # Listen
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 8088  # Default port 8088
+LISTENING_PORT = 80  # Default port 8098
 
 # Pass
 PASS = ''
@@ -11,11 +11,8 @@ PASS = ''
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-MSG = 'wep'
-COR = '<font color="null">'
-FTAG = '</font>'
-DEFAULT_HOST = '0.0.0.0:22'
-RESPONSE = "HTTP/1.1 200 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"'
+DEFAULT_HOST = '127.0.0.1:22'
+RESPONSE = 'HTTP/1.1 101 <b><font color="yellow"> 1 User</b> </color>es<b><font color="green">1 Celu</font></b> \r\n\r\nContent-Length: 104857600000\r\n\r\n'
 
 class Server(threading.Thread):
     def __init__(self, host, port):
