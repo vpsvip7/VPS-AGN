@@ -9,7 +9,7 @@ display_banner() {
    cat << "EOF"
 *************************************************
 *                                               *
-*                  Khaled AGN     v2.1          *
+*                  Khaled AGN  2026             *
 *        Visit me on Telegram: @khaledagn       *
 *                                               *
 *************************************************
@@ -21,11 +21,11 @@ show_menu() {
    clear
    display_banner
    echo "Websocket VPN Manager Menu"
-   echo "1. Checker Server Status"
-   echo "2. Manage SSH Users"
-   echo "3. Editar  Puerto WS-3"
-   echo "4. Reiniciat WebSocket "
-   echo "5. Desinstalar Websocket"
+   echo "1. Check Server Status"
+   echo "2. MENU Usuarios SSH"
+   echo "3. EDITAR PUERTO WS "
+   echo "4. REINICIAR WebSocket Service"
+   echo "5. ELIMINAR Websocket"
    echo "6. Server Information"
    echo "7. Exit"
 }
