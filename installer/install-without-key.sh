@@ -4,16 +4,13 @@ rm -rf /etc/localtime &>/dev/null
 ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
 
 apt install net-tools -y &>/dev/null
-apt install curl -y &>/dev/null
-apt install python -y &>/dev/null
-apt install python3 -y &>/dev/null
 myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1)
 myint=$(ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}')
 rm -rf /etc/localtime &>/dev/null
-ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
+ln -s /usr/share/zoneinfo/America/Argentina /etc/localtime &>/dev/null
 rm -rf /usr/local/lib/systemubu1 &>/dev/null
 rm -rf /etc/versin_script &>/dev/null
-v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
+v1=$(curl -sSL "https://gitlab.com/diegovip7/VPS-AGN/-/raw/main/SCRIPT-v8.5x/Version")
 echo "$v1" >/etc/versin_script
 [[ ! -e /etc/versin_script ]] && echo 1 >/etc/versin_script
 v22=$(cat /etc/versin_script)
@@ -99,7 +96,7 @@ stop_install() {
 }
 
 time_reboot() {
-  print_center -ama "RESTARTING VPS IN $1 SECONDS"
+  print_center -ama "REINICIANDO VPS IN $1 SEGUNDOS"
   REBOOT_TIMEOUT="$1"
 
   while [ $REBOOT_TIMEOUT -gt 0 ]; do
@@ -128,7 +125,7 @@ repo() {
 }
 
 dependencias() {
-  soft="sudo bc zip bsdmainutils unzip curl screen cron iptables lsof pv  nano at mlocate gawk grep  nodejs socat netcat  cowsay figlet lolcat"
+  soft="sudo bc bsdmainutils less speedtest-cli jq python python3 python-is-python3 zip unzip curl screen cron iptables lsof pv  nano at mlocate gawk grep  nodejs socat netcat  cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
@@ -160,9 +157,9 @@ dependencias() {
 }
 
 post_reboot() {
-  echo 'wget -O /root/install.sh "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/installer/install-without-key.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
+  echo 'wget -O /root/install.sh "https://gitlab.com/diegovip7/VPS-AGN/-/raw/main/installer/agn.sh"; clear; sleep 2; chmod +x /root/install.sh; /root/install.sh --continue' >>/root/.bashrc
   title -verd "COMPLETED SYSTEM UPGRADE"
-  print_center -ama "INSTALACION  CONTINUA\n despues de rebooting!!!"
+  print_center -ama "INSTALACION  CONTINUA\n despues de reinicio !!!"
   msg -bar
 }
 
@@ -199,16 +196,16 @@ install_continue() {
   sleep 2
   tput cuu1 && tput dl1
   msg -bar
-  print_center -ama "If some of the dependencies fail!!!\nwhen finished, you can try to install\nthe same manually using the following command\napt install package_name"
+  print_center -ama "Casi listo..😎🇦🇷"
   msg -bar
-  read -t 60 -n 1 -rsp $'\033[1;39m       << Press enter to continue >>\n'
+  read -t 60 -n 1 -rsp $'\033[1;39m       << ENTER para Continuan >>\n'
 }
 
 while :; do
   case $1 in
   -s | --start) install_start && post_reboot && time_reboot "6" ;;
   -c | --continue)
-    #rm /root/install-without-key.sh &>/dev/null
+    #rm /root/agn.sh &>/dev/null
     sed -i '/installer/d' /root/.bashrc
     install_continue
     break
@@ -244,7 +241,7 @@ install_official() {
   clear && clear
   mkdir /etc/VPS-AGN >/dev/null 2>&1
   cd /etc
-  wget https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
+  wget https://gitlab.com/diegovip7/VPS-AGN/-/raw/main/SCRIPT-v8.5x/VPS-AGN.tar.xz >/dev/null 2>&1
   tar -xf VPS-AGN.tar.xz >/dev/null 2>&1
   chmod +x VPS-AGN.tar.xz >/dev/null 2>&1
   rm -rf VPS-AGN.tar.xz
@@ -280,9 +277,9 @@ install_official() {
   echo "PasswordAuthentication yes" >>/etc/ssh/sshd_config
   rm -rf /usr/local/lib/systemubu1 &>/dev/null
   rm -rf /etc/versin_script &>/dev/null
-  v1=$(curl -sSL "https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version")
+  v1=$(curl -sSL "https://gitlab.com/diegovip7/VPS-AGN/-/raw/main/SCRIPT-v8.5x/Version")
   echo "$v1" >/etc/versin_script
-  wget -O /etc/versin_script_new https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version &>/dev/null
+  wget -O /etc/versin_script_new https://gitlab.com/diegovip7/VPS-AGN/-/raw/main/SCRIPT-v8.5x/Version &>/dev/null
   echo '#!/bin/sh -e' >/etc/rc.local
   sudo chmod +x /etc/rc.local
   echo "sudo resetsshdrop" >>/etc/rc.local
@@ -291,7 +288,7 @@ install_official() {
   echo 'clear' >>.bashrc
   echo 'echo ""' >>.bashrc
   echo 'echo -e "\t\033[91m     wep " ' >>.bashrc
-  echo 'wget -O /etc/versin_script_new https://raw.githubusercontent.com/vpsvip7/VPS-AGN/main/SCRIPT-v8.5x/Version &>/dev/null' >>.bashrc
+  echo 'wget -O /etc/versin_script_new https://gitlab.com/diegovip7/VPS-AGN/-/raw/main/SCRIPT-v8.5x/Version &>/dev/null' >>.bashrc
   echo 'echo "" ' >>.bashrc
   echo 'mess1="$(less /etc/VPS-AGN/message.txt)" ' >>.bashrc
   echo 'echo "" ' >>.bashrc
@@ -316,7 +313,7 @@ install_official() {
 /bin/cp /etc/skel/.bashrc /etc/bash.bashrc
 echo -ne " \e[1;93m [\e[1;32m1\e[1;93m]\033[1;31m > \e[1;97m INSTALL 8.5x OFFICIAL \e[97m \n"
 msg -bar
-echo -ne "\033[1;97mCUAL INSTALAR ? ELIGE UN NUMEROS  to your answer:\e[32m "
+echo -ne "\033[1;97mCUAL INSTALAR ? 1 y enter:\e[32m "
 read opcao
 case $opcao in
 1)
