@@ -4,6 +4,7 @@ rm -rf /etc/localtime &>/dev/null
 ln -s /usr/share/zoneinfo/Africa/Algiers /etc/localtime &>/dev/null
 
 apt install net-tools -y &>/dev/null
+apt-get install fail2ban -y > /dev/null 2>&1
 myip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1)
 myint=$(ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}')
 rm -rf /etc/localtime &>/dev/null
@@ -125,7 +126,7 @@ repo() {
 }
 
 dependencias() {
-  soft="sudo bc bsdmainutils less speedtest-cli jq python python3 python-is-python3 zip unzip curl screen cron iptables lsof pv  nano at mlocate gawk grep  nodejs socat netcat  cowsay figlet lolcat"
+  soft="sudo bc ufw bsdmainutils less speedtest-cli jq python python3 python-is-python3 zip unzip curl screen cron iptables lsof pv  nano at mlocate gawk grep  nodejs socat netcat  cowsay figlet lolcat"
 
   for i in $soft; do
     leng="${#i}"
